@@ -1,1 +1,1 @@
-console.log(`hey`);
+// ? getting quotes from API
