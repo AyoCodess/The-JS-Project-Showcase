@@ -1,0 +1,48 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 20rem;
+  color: red;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  font-size: 3.5rem;
+
+  a {
+    list-style: none;
+    text-decoration: none;
+
+    li {
+      border: 1px solid black;
+      padding: 1rem;
+      border-radius: 5px;
+      color: black;
+      margin-right: 1.5rem;
+    }
+
+    li:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}

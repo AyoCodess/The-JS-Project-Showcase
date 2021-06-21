@@ -1,0 +1,22 @@
+{
+  "name": "templates",
+  "version": "1.0.0",
+  "description": "New Project",
+  "main": "script.js",
+  "scripts": {
+    "sass": "sass --watch scss:dist/css quote-generator:dist/css --style=compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyoCodess/The-JS-Project-Showcase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyoCodess/The-JS-Project-Showcase/issues"
+  },
+  "homepage": "https://github.com/AyoCodess/The-JS-Project-Showcase#readme",
+  "dependencies": {
+    "sass": "^1.35.1"
+  }
+}

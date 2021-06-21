@@ -12,6 +12,17 @@ html {
 }
 
 h1 {
+  font-size: 20rem;
   color: red;
-  font-size: 10rem;
+}
+
+body {
+  background: black;
+}
+
+.help {
+  .show {
+    color: white;
+    font-size: 10rem;
+  }
 }
