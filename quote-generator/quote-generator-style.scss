@@ -11,18 +11,62 @@ html {
   box-sizing: inherit;
 }
 
-h1 {
-  font-size: 20rem;
-  color: red;
-}
-
 body {
-  background: black;
+  font-family: "Lato", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  text-align: center;
 }
 
-.help {
-  .show {
-    color: white;
-    font-size: 10rem;
+.quote-container {
+  font-weight: 300;
+  border: black 2px solid;
+  padding: 4rem 4rem 2rem 4rem;
+  font-size: 3rem;
+  position: relative;
+  margin: 5rem;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 5px;
+
+  .quote-author {
+    margin-top: 2rem;
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+  }
+
+  .one-q {
+    font-size: 2rem;
+    position: absolute;
+    top: 5%;
+    left: 1%;
+  }
+
+  .two-q {
+    font-size: 2rem;
+    position: absolute;
+    top: 5%;
+    right: 1%;
+  }
+  .button-container {
+    button {
+      background-color: white;
+      padding: 1rem 3rem;
+      border-radius: 5px;
+    }
+
+    i {
+      font-size: 3rem;
+    }
   }
 }
