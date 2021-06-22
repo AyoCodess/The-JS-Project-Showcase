@@ -23,27 +23,44 @@ h1 {
 
 .navbar {
   display: flex;
+  margin: 2rem 2rem;
+
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
   min-height: 100vh;
   font-size: 3.5rem;
 
-  a {
-    list-style: none;
-    text-decoration: none;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
-    li {
-      border: 1px solid black;
-      padding: 1rem;
-      border-radius: 5px;
-      color: black;
-      margin-right: 1.5rem;
-    }
+    a {
+      list-style: none;
+      text-decoration: none;
 
-    li:hover {
-      background-color: black;
-      color: white;
+      li {
+        border: 1px solid black;
+        padding: 1rem;
+        border-radius: 5px;
+        color: black;
+        margin-top: 1.5rem;
+
+        min-width: 30rem;
+      }
+
+      li:hover {
+        background-color: black;
+        color: white;
+      }
     }
+  }
+
+  a:not(:first-child) {
+    margin-left: 1rem;
   }
 }
