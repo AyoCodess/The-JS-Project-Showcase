@@ -2,6 +2,8 @@ const quoteContainer = document.getElementById(`quote-container`);
 const quoteText = document.getElementById(`quote`);
 const authorText = document.getElementById(`author`);
 const twitterBtn = document.getElementById(`twitter`);
+const facebookBtn = document.getElementById(`facebook`);
+const linkedinBtn = document.getElementById(`linkedin`);
 const NewBtn = document.getElementById(`new-quote`);
 
 const loader = document.getElementById(`loader`);
@@ -47,12 +49,35 @@ function newQuote() {
   hideLoading();
 }
 
-//? tweet a quote
+//? share quotes
 
 function tweetQuote() {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${quote.textContent} - ${authorText.textContent} %23AyoAdesanya.com`;
   window.open(twitterUrl, "_blank");
 }
+
+// Share the quote on Facebook!
+const facebookShare = () => {
+  const quote = quoteText.textContent;
+  const author = authorText.textContent;
+  const title = "Modern Quote Generator";
+  const personalLink = "www.ayoadesanya.com";
+  const facebookUrl = `http://www.facebook.com/sharer.php?s=100&p[title]=${title}&p[url]=${encodeURIComponent(
+    personalLink
+  )}&p[quote]=${quote} ~${author}`;
+
+  window.open(facebookUrl, "_blank");
+};
+
+// Share the quote on Linkedin!
+const linkedinShare = () => {
+  const personalLink = "www.ayoadesanya.com";
+  const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+    personalLink
+  )}`;
+
+  window.open(linkedinUrl, "_blank");
+};
 
 // * EVENT LISTENERS
 twitterBtn.addEventListener(`click`, function () {
@@ -62,6 +87,9 @@ twitterBtn.addEventListener(`click`, function () {
 NewBtn.addEventListener(`click`, function () {
   newQuote();
 });
+
+facebookBtn.addEventListener("click", facebookShare);
+linkedinBtn.addEventListener("click", linkedinShare);
 
 async function getQuotes() {
   loading();
