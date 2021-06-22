@@ -80,7 +80,7 @@ body {
     justify-content: space-between;
     margin-top: 2.5rem;
 
-    @media (max-width: 563px) {
+    @media (max-width: 570px) {
       display: grid;
       grid-template-rows: 1fr 1fr;
 
@@ -101,7 +101,7 @@ body {
     }
 
     button:hover {
-      background-color: lighten(#1a7bba, 10%);
+      background-color: lighten(#1a7bba, 50%);
       color: white;
     }
 
@@ -120,8 +120,8 @@ body {
     }
 
     i:hover {
-      color: white;
-      background-color: lighten(#1a7bba, 10%);
+      // color: white;
+      // background-color: lighten(#1a7bba, 10%);
     }
   }
 }
@@ -157,7 +157,13 @@ body {
 }
 
 #new-quote {
-  @media (max-width: 563px) {
+  margin-left: 1rem;
+  @media (max-width: 570px) {
     margin-top: 1rem;
+    margin-left: 0rem;
   }
+}
+
+#new-quote:hover {
+  color: #1a7bba;
 }

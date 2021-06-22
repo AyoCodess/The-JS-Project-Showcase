@@ -1,3 +1,4 @@
+//? Selectors
 const quoteContainer = document.getElementById(`quote-container`);
 const quoteText = document.getElementById(`quote`);
 const authorText = document.getElementById(`author`);
@@ -5,26 +6,30 @@ const twitterBtn = document.getElementById(`twitter`);
 const facebookBtn = document.getElementById(`facebook`);
 const linkedinBtn = document.getElementById(`linkedin`);
 const NewBtn = document.getElementById(`new-quote`);
-
 const loader = document.getElementById(`loader`);
 
-// ? getting quotes from API
+//* ASYNC function triggers immediately on page load.
+
+getQuotes();
+
+// ? Getting quotes from API
 
 let apiQuotes = [];
 
-// ? we are loading quote
+async function getQuotes() {
+  loading();
+  const apiURL = "https://type.fit/api/quotes";
 
-function loading() {
-  loader.hidden = false;
-  quoteContainer.hidden = true;
+  try {
+    const response = await fetch(apiURL);
+    apiQuotes = await response.json();
+    newQuote();
+  } catch (error) {
+    apiQuotes = localQuotes;
+  }
 }
 
-function hideLoading() {
-  loader.hidden = true;
-  quoteContainer.hidden = false;
-}
-
-//? show new quote
+//?  displaying 1 new quote
 
 function newQuote() {
   loading();
@@ -49,37 +54,8 @@ function newQuote() {
   hideLoading();
 }
 
-//? share quotes
-
-function tweetQuote() {
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote.textContent} - ${authorText.textContent} %23AyoAdesanya.com`;
-  window.open(twitterUrl, "_blank");
-}
-
-// Share the quote on Facebook!
-const facebookShare = () => {
-  const quote = quoteText.textContent;
-  const author = authorText.textContent;
-  const title = "Modern Quote Generator";
-  const personalLink = "www.ayoadesanya.com";
-  const facebookUrl = `http://www.facebook.com/sharer.php?s=100&p[title]=${title}&p[url]=${encodeURIComponent(
-    personalLink
-  )}&p[quote]=${quote} ~${author}`;
-
-  window.open(facebookUrl, "_blank");
-};
-
-// Share the quote on Linkedin!
-const linkedinShare = () => {
-  const personalLink = "www.ayoadesanya.com";
-  const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-    personalLink
-  )}`;
-
-  window.open(linkedinUrl, "_blank");
-};
-
 // * EVENT LISTENERS
+
 twitterBtn.addEventListener(`click`, function () {
   tweetQuote();
 });
@@ -91,19 +67,45 @@ NewBtn.addEventListener(`click`, function () {
 facebookBtn.addEventListener("click", facebookShare);
 linkedinBtn.addEventListener("click", linkedinShare);
 
-async function getQuotes() {
-  loading();
-  const apiURL = "https://type.fit/api/quotes";
+//* LOADING SPINNER
 
-  try {
-    const response = await fetch(apiURL);
-    apiQuotes = await response.json();
-    newQuote();
-  } catch (error) {
-    apiQuotes = localQuotes;
-  }
+function loading() {
+  loader.hidden = false;
+  quoteContainer.hidden = true;
 }
 
-//? on load
+function hideLoading() {
+  loader.hidden = true;
+  quoteContainer.hidden = false;
+}
 
-getQuotes();
+// * SHARING QUOTES ON SOCIAL MEDIA
+
+//? Share the quote on Twitter!
+function tweetQuote() {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote.textContent} - ${authorText.textContent} %23AyoAdesanya.com`;
+  window.open(twitterUrl, "_blank");
+}
+
+//? Share the quote on Facebook!
+function facebookShare() {
+  const quote = quoteText.textContent;
+  const author = authorText.textContent;
+  const title = "Modern Quote Generator";
+  const personalLink = "www.ayoadesanya.com";
+  const facebookUrl = `http://www.facebook.com/sharer.php?s=100&p[title]=${title}&p[url]=${encodeURIComponent(
+    personalLink
+  )}&p[quote]=${quote} ~${author}`;
+
+  window.open(facebookUrl, "_blank");
+}
+
+//? Share the quote on Linkedin!
+function linkedinShare() {
+  const personalLink = "www.ayoadesanya.com";
+  const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+    personalLink
+  )}`;
+
+  window.open(linkedinUrl, "_blank");
+}
