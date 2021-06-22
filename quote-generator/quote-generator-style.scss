@@ -80,6 +80,13 @@ body {
     justify-content: space-between;
     margin-top: 2.5rem;
 
+    @media (max-width: 563px) {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+
+      justify-content: center;
+    }
+
     button {
       background-color: white;
       padding: 1rem 3rem;
@@ -140,5 +147,17 @@ body {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.btn-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+#new-quote {
+  @media (max-width: 563px) {
+    margin-top: 1rem;
   }
 }

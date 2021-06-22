@@ -72,7 +72,7 @@ async function getQuotes() {
     apiQuotes = await response.json();
     newQuote();
   } catch (error) {
-    alert(`Sorry we encountered this ${error}, please try again.`);
+    apiQuotes = localQuotes;
   }
 }
 
