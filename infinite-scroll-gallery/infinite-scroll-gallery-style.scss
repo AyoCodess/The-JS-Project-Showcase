@@ -12,21 +12,64 @@ html {
 }
 
 body {
-  position: relative;
-  font-family: "Lato", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: "lato", sans-serif;
 
-  min-height: 100vh;
   text-align: center;
 }
 
+// ? main heading
+
 h1 {
   text-align: center;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-weight: 300;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
   font-size: 4rem;
-  letter-spacing: 0.5rem;
-  color: blue;
+  letter-spacing: 0.3rem;
+  color: black;
+  text-transform: uppercase;
+
+  @media (max-width: 540px) {
+    font-size: 2rem;
+  }
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($color: rgb(255, 255, 255), $alpha: 0.8);
+
+  img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// ? image container
+
+.image-container {
+  margin: 0rem 40%;
+
+  @media (max-width: 1024px) {
+    margin: 0rem 30%;
+  }
+
+  @media (max-width: 800px) {
+    margin: 0rem 20%;
+  }
+
+  @media (max-width: 540px) {
+    margin: 0rem 3%;
+  }
+
+  img {
+    margin-top: 1rem;
+    width: 100%;
+    height: auto;
+  }
 }
