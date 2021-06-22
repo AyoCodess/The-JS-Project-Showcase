@@ -17,7 +17,7 @@ getQuotes();
 let apiQuotes = [];
 
 async function getQuotes() {
-  loading();
+  showLoadingSpinner();
   const apiURL = "https://type.fit/api/quotes";
 
   try {
@@ -32,7 +32,7 @@ async function getQuotes() {
 //?  displaying 1 new quote
 
 function newQuote() {
-  loading();
+  showLoadingSpinner();
   //? pick a random quote from api array
 
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
@@ -51,7 +51,7 @@ function newQuote() {
   }
 
   quoteText.textContent = quote.text;
-  hideLoading();
+  hideLoadingSpinner();
 }
 
 // * EVENT LISTENERS
@@ -69,12 +69,12 @@ linkedinBtn.addEventListener("click", linkedinShare);
 
 //* LOADING SPINNER
 
-function loading() {
+function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
 
-function hideLoading() {
+function hideLoadingSpinner() {
   loader.hidden = true;
   quoteContainer.hidden = false;
 }
