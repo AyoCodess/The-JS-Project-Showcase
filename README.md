@@ -1,3 +1,3 @@
-New Project
+Great JS projects for you too look at.
 
-Website: https://ayocodess.github.io/The-JS-Project-Showcase/
+Website: https://js-project-collection.netlify.app/
