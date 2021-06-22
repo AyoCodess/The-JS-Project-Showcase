@@ -12,99 +12,12 @@ html {
 }
 
 body {
-  font-family: "lato", sans-serif;
-
+  font-family: "Josefin Sans", sans-serif;
   text-align: center;
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
 }
 
-.social-media-icons-container {
-  a {
-    text-decoration: none;
-
-    color: white;
-    p {
-      margin-top: 1rem;
-      white-space: nowrap;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-  }
-}
-
-.navbar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  padding-top: 4rem;
-  padding-bottom: 1rem;
-
-  background-color: lighten(#1a7bba, 50%);
-
-  border-bottom: 0.5rem solid;
-  border-top: 0.5rem solid;
-  border-color: lighten(#1a7bba, 48%);
-  margin-bottom: 2rem;
-  margin-top: 8rem;
-
-  .social-media-icons-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    max-width: 20rem;
-    column-gap: 10rem;
-
-    font-size: 3rem;
-    margin-bottom: 2rem;
-
-    i {
-      padding: 1rem;
-      border-radius: 1rem;
-      color: lighten(#1a7bba, 10%);
-      font-size: 4rem;
-
-      box-shadow: rgba(131, 165, 238, 0.3) 0px 19px 38px,
-        rgba(127, 189, 240, 0.22) 0px 15px 12px;
-    }
-  }
-
-  .sub-heading {
-    margin-top: 1rem;
-    font-size: 3rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
-    color: black;
-  }
-
-  // ? main heading
-}
-.h1-container {
-  display: flex;
-  justify-content: center;
-}
-h1 {
-  margin: 0 3rem;
-  text-align: center;
-  font-weight: 300;
-  margin-top: 9rem;
-  margin-bottom: 4rem;
-  font-size: 4rem;
-  letter-spacing: 0.3rem;
-  color: lighten(#1a7bba, 10%);
-  text-transform: uppercase;
-
-  max-width: 100rem;
-  padding: 2rem;
-  border-radius: 2rem;
-
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-
-  @media (max-width: 540px) {
-    font-size: 2rem;
-  }
-}
+//? loader
 
 .loader {
   position: fixed;
@@ -122,26 +35,53 @@ h1 {
   }
 }
 
+// ? main heading
+.container {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2rem;
+  margin-left: 3rem;
+  margin-top: 3rem;
+  text-align: left;
+  color: white;
+
+  @media (max-width: 411px) {
+    font-size: 1rem;
+  }
+
+  span {
+    color: gold;
+  }
+
+  .sub-heading {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 300;
+    color: gold;
+
+    @media (max-width: 411px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
 // ? image container
 
 .image-container {
-  margin: 0rem 40%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  gap: 3rem;
 
-  @media (max-width: 1024px) {
-    margin: 0rem 30%;
-  }
+  margin: 3rem;
 
-  @media (max-width: 800px) {
-    margin: 0rem 20%;
-  }
-
-  @media (max-width: 540px) {
-    margin: 0rem 3%;
+  @media (max-width: 411px) {
+    // font-size: 1.5rem;
   }
 
   img {
-    margin-top: 1rem;
     width: 100%;
     height: auto;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
   }
 }
