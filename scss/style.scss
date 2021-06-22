@@ -11,60 +11,68 @@ html {
   box-sizing: inherit;
 }
 
+$purple: #24243e;
+$purple-light: #302b63;
+$purple-2: #0f0c29;
+
 body {
   font-family: "Lato", sans-serif;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 20rem;
-  color: red;
+.title {
+  margin-left: 5rem;
+  margin-top: 3rem;
 }
 
-.navbar {
-  display: flex;
-  margin: 2rem 2rem;
+.container {
+  text-align: center;
+  margin: 3rem;
 
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
 
-  min-height: 100vh;
-  font-size: 3.5rem;
-
-  ul {
-    display: flex;
-    flex-wrap: wrap;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
-    text-align: center;
 
-    a {
-      list-style: none;
-      text-decoration: none;
+    .card {
+      height: 35rem;
+      width: 25rem;
 
-      li {
-        border: 1px solid black;
-        padding: 1rem;
-        border-radius: 5px;
-        color: black;
-        margin-top: 1.5rem;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      border-radius: 2rem;
 
-        min-width: 30rem;
+      .text-container {
+        padding: 2rem;
       }
 
-      li:hover {
-        background-color: black;
+      img {
+        display: block;
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+      }
+
+      a {
+        display: inline-block;
+        font-size: 2rem;
+        margin-top: 2rem;
+        padding: 1rem;
+        text-decoration: none;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 100%;
         color: white;
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+      }
+
+      p {
+        margin-top: 1rem;
+      }
+      &--0 {
       }
     }
   }
-
-  a:not(:first-child) {
-    margin-left: 1rem;
-  }
 }
-
-$purple: #24243e;
-$purple-light: #302b63;
-$purple-2: #0f0c29;
