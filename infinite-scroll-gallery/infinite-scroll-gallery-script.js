@@ -19,6 +19,14 @@ const apiURL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&quer
 
 //* CREATE ELEMENTS FOR LINKS & PHOTOS, ADD TO DOM
 
+//* Helper function to set attributes on DOM elements
+
+function setAttributes(element, attributes) {
+  for (const nameOfAtr in attributes) {
+    element.setAttribute(nameOfAtr, attributes[nameOfAtr]);
+  }
+}
+
 function displayPhotos() {
   //? RUN FUNCTION FOR EACH OBJECT IN PHOTO-ARRAY
 
@@ -27,16 +35,20 @@ function displayPhotos() {
 
     const item = document.createElement(`a`);
 
-    item.setAttribute(`href`, photo.urls.regular);
-    item.setAttribute(`target`, `_blank`);
+    setAttributes(item, {
+      href: photo.urls.regular,
+      target: "_blank",
+    });
 
     //? create <img> for photo
 
     const img = document.createElement("img");
 
-    img.setAttribute(`src`, photo.urls.regular);
-    img.setAttribute(`alt`, photo.alt_description);
-    img.setAttribute(`title`, photo.alt_description);
+    setAttributes(img, {
+      src: photo.urls.regular,
+      alt: photo.alt_description,
+      title: photo.alt_description,
+    });
 
     //* put <img> inside <a>, then put both inside .image-container</a>
 

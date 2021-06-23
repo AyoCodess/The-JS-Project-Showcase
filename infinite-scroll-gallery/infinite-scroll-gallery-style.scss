@@ -38,16 +38,23 @@ body {
 
 // ? main heading
 .container {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  margin-left: 3%;
+  margin-right: 3%;
+
   font-weight: 400;
   font-style: italic;
   font-size: 2rem;
-  margin-left: 3rem;
+
   margin-top: 3rem;
-  text-align: left;
   color: white;
 
   @media (max-width: 411px) {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   span {
@@ -69,11 +76,9 @@ body {
 // ? image container
 
 .image-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-  gap: 3rem;
-
-  margin: 3rem;
+  margin: 3rem 3%;
+  columns: 4;
+  column-gap: 1.8rem;
 
   @media (max-width: 411px) {
     // font-size: 1.5rem;
@@ -82,7 +87,38 @@ body {
   img {
     width: 100%;
     height: auto;
+    margin-bottom: 1.4rem;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+
+    transition: 0.4s transform ease-in-out;
+  }
+
+  img:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media only screen and (max-width: 1700px) {
+  .image-container {
+    columns: 3;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .image-container {
+    columns: 3;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .image-container {
+    columns: 2;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .image-container {
+    columns: 1;
   }
 }
