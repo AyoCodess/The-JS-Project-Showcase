@@ -8,31 +8,32 @@ const imageContainer = document.getElementById(`image-container`);
 const loader3 = document.getElementById(`loader3`);
 
 let photosArray = [];
-let ready = false;
-let imagesLoaded = 0;
-let totalImages = 0;
+let readyToLoadMoreImages = false;
+let currentAmountOfImagesLoaded = 0;
+let specifiedAmountOfImagesLoaded = 0;
 
 //? API PARAMETERS
 
 const query = `crypto`;
 const order_by = `latest`;
-const per_page = `30`;
+let imagesPerPageLoaded = `15`;
 
 //? API STRING
-const apiURL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&query=${query}&per_page=${per_page}&order_by=${order_by}`;
+const apiURL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&query=${query}&per_page=${imagesPerPageLoaded}&order_by=${order_by}`;
 
 //* CREATE ELEMENTS FOR LINKS & PHOTOS, ADD TO DOM
 
 //* check if all images were loaded
 
 function imageLoader() {
-  imagesLoaded++;
-  console.log(imagesLoaded);
+  currentAmountOfImagesLoaded++;
+  console.log(currentAmountOfImagesLoaded);
 
-  if (imagesLoaded === totalImages) {
-    ready = true;
+  if (currentAmountOfImagesLoaded === specifiedAmountOfImagesLoaded) {
+    readyToLoadMoreImages = true;
     loader3.hidden = true;
-    console.log(`ready =`, ready);
+
+    imagesPerPageLoaded = 30;
   }
 }
 
@@ -49,11 +50,11 @@ function setAttributes(element, attributes) {
 }
 
 function displayPhotos() {
-  imagesLoaded = 0;
-  console.log(`in the displayPhots function`, imagesLoaded);
+  currentAmountOfImagesLoaded = 0;
+  console.log(`in the displayPhots function`, currentAmountOfImagesLoaded);
 
-  totalImages = photosArray.length;
-  console.log(`total images`, totalImages);
+  specifiedAmountOfImagesLoaded = photosArray.length;
+  console.log(`total images`, specifiedAmountOfImagesLoaded);
 
   //? RUN FUNCTION FOR EACH OBJECT IN PHOTO-ARRAY
 
@@ -108,10 +109,10 @@ async function getPhotos() {
 window.addEventListener(`scroll`, () => {
   if (
     window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 &&
-    ready
+    readyToLoadMoreImages
   ) {
-    ready = false;
-    console.log(`load more`);
+    readyToLoadMoreImages = false;
+
     getPhotos();
   }
 });
