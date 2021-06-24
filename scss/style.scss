@@ -125,7 +125,10 @@ body {
         margin-top: 2rem;
         padding: 1rem;
         text-decoration: none;
-        // border: 1px solid black;
+
+        border-bottom: 2px solid lighten(#368496, 40%);
+        border-top: 2px solid lighten(#368496, 40%);
+
         border-radius: 5px;
         width: 100%;
         color: black;
@@ -133,8 +136,10 @@ body {
       }
 
       a:hover {
-        background: darken(#302b63, 15%);
-        color: white;
+        button:active {
+          transform: translateY(3px);
+          box-shadow: 0 6px 6px 0 rgba(200, 146, 148, 0.3);
+        }
       }
 
       a:active {
