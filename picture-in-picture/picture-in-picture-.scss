@@ -23,9 +23,15 @@ body {
   background: white;
 }
 
+.container {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 .main {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .chrome {
@@ -170,4 +176,38 @@ button {
 button:active {
   transform: translateY(3px);
   box-shadow: 0 6px 6px 0 rgba(200, 146, 148, 0.3);
+}
+
+// ? MEDIA QUERIES
+
+@media (max-width: 1164px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .button-container {
+    margin-top: 5rem;
+  }
+
+  .text-container {
+    max-width: 50rem;
+    align-items: flex-start;
+    margin-left: 10rem;
+  }
+}
+
+@media (max-width: 782px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .button-container {
+    margin-top: 5rem;
+  }
+
+  .text-container {
+    max-width: 50rem;
+    align-items: flex-start;
+    margin-left: 10rem;
+  }
 }
