@@ -1,0 +1,1 @@
+{"version":3,"sources":["config.js"],"names":["config","MY_API_TOKEN"],"mappings":";AAAA,IAAMA,EAAS,CACbC,aAAc","file":"config.0cf7f036.js","sourceRoot":"..","sourcesContent":["const config = {\n  MY_API_TOKEN: \"JR5tbAl5KMYdvRyX55SbkGVx2I3Fx9cDRbpg-LyCzlQ\",\n};\n"]}
