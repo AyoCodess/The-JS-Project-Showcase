@@ -6,7 +6,7 @@ const twitterBtn = document.getElementById(`twitter`);
 const facebookBtn = document.getElementById(`facebook`);
 const linkedinBtn = document.getElementById(`linkedin`);
 const NewBtn = document.getElementById(`new-quote`);
-const loader = document.getElementById(`loader`);
+const loader2 = document.getElementById(`loader2`);
 
 //* ASYNC function triggers immediately on page load.
 
@@ -70,12 +70,12 @@ linkedinBtn.addEventListener("click", linkedinShare);
 //* LOADING SPINNER
 
 function showLoadingSpinner() {
-  loader.hidden = false;
+  loader2.hidden = false;
   quoteContainer.hidden = true;
 }
 
 function hideLoadingSpinner() {
-  loader.hidden = true;
+  loader2.hidden = true;
   quoteContainer.hidden = false;
 }
 

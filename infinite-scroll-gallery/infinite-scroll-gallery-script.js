@@ -5,7 +5,7 @@ const apiKey = config.MY_API_TOKEN;
 //? DISPLAYING RESULtS
 
 const imageContainer = document.getElementById(`image-container`);
-const loader = document.getElementById(`loader`);
+const loader3 = document.getElementById(`loader3`);
 
 let photosArray = [];
 let ready = false;
@@ -31,7 +31,7 @@ function imageLoader() {
 
   if (imagesLoaded === totalImages) {
     ready = true;
-    loader.hidden = true;
+    loader3.hidden = true;
     console.log(`ready =`, ready);
   }
 }
