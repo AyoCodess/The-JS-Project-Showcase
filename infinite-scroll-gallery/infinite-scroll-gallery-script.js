@@ -1,15 +1,19 @@
+//! hiding API KEYS
+
+const apiKey = config.MY_API_TOKEN;
+
 //? DISPLAYING RESULtS
 
 const imageContainer = document.getElementById(`image-container`);
 const loader = document.getElementById(`loader`);
 
 let photosArray = [];
+let ready = false;
+let imagesLoaded = 0;
+let totalImages = 0;
 
 //? API PARAMETERS
 
-const apiKey = `JR5tbAl5KMYdvRyX55SbkGVx2I3Fx9cDRbpg-LyCzlQ`;
-
-const lang = `en`;
 const query = `crypto`;
 const order_by = `latest`;
 const per_page = `30`;
@@ -19,15 +23,38 @@ const apiURL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&quer
 
 //* CREATE ELEMENTS FOR LINKS & PHOTOS, ADD TO DOM
 
+//* check if all images were loaded
+
+function imageLoader() {
+  imagesLoaded++;
+  console.log(imagesLoaded);
+
+  if (imagesLoaded === totalImages) {
+    ready = true;
+    loader.hidden = true;
+    console.log(`ready =`, ready);
+  }
+}
+
 //* Helper function to set attributes on DOM elements
 
 function setAttributes(element, attributes) {
   for (const nameOfAtr in attributes) {
     element.setAttribute(nameOfAtr, attributes[nameOfAtr]);
+
+    // for (const [name, value] of Object.entries(attributes)) {
+    //   element.setAttribute(name, value);
+    // }
   }
 }
 
 function displayPhotos() {
+  imagesLoaded = 0;
+  console.log(`in the displayPhots function`, imagesLoaded);
+
+  totalImages = photosArray.length;
+  console.log(`total images`, totalImages);
+
   //? RUN FUNCTION FOR EACH OBJECT IN PHOTO-ARRAY
 
   photosArray.forEach((photo) => {
@@ -50,6 +77,10 @@ function displayPhotos() {
       title: photo.alt_description,
     });
 
+    //? event listener check when each is finished loading
+
+    img.addEventListener(`load`, imageLoader);
+
     //* put <img> inside <a>, then put both inside .image-container</a>
 
     item.append(img);
@@ -65,12 +96,25 @@ async function getPhotos() {
     const data = await response.json();
 
     photosArray = data.results;
+
     displayPhotos();
   } catch (error) {
-    document.body.innerHTML = `To many API requests try again in an hour ${error}`;
-    console.log(error);
+    alert(`${error}`);
   }
 }
+
+//? check to see if scrolling near bottom of page, load more photos
+
+window.addEventListener(`scroll`, () => {
+  if (
+    window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 &&
+    ready
+  ) {
+    ready = false;
+    console.log(`load more`);
+    getPhotos();
+  }
+});
 
 //? API LOAD
 
