@@ -10,16 +10,21 @@ const loader3 = document.getElementById(`loader3`);
 let photosArray = [];
 let readyToLoadMoreImages = false;
 let currentAmountOfImagesLoaded = 0;
-let specifiedAmountOfImagesLoaded = 0;
+let specifiedAmountOfImagesLoaded = 15;
+let initialLoad = true;
 
 //? API PARAMETERS
 
 const query = `crypto`;
-const order_by = `latest`;
-let imagesPerPageLoaded = `15`;
 
 //? API STRING
-const apiURL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&query=${query}&per_page=${imagesPerPageLoaded}&order_by=${order_by}`;
+let apiURL = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&query=${query}&count=${specifiedAmountOfImagesLoaded}`;
+
+function updateURLWithnewSpecifiedAmountOfImagesLoaded(
+  newSpecifiedAmountOfImagesLoaded
+) {
+  apiURL = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&query=${query}&count=${newSpecifiedAmountOfImagesLoaded}`;
+}
 
 //* CREATE ELEMENTS FOR LINKS & PHOTOS, ADD TO DOM
 
@@ -27,13 +32,13 @@ const apiURL = `https://api.unsplash.com/search/photos/?client_id=${apiKey}&quer
 
 function imageLoader() {
   currentAmountOfImagesLoaded++;
-  console.log(currentAmountOfImagesLoaded);
 
   if (currentAmountOfImagesLoaded === specifiedAmountOfImagesLoaded) {
     readyToLoadMoreImages = true;
     loader3.hidden = true;
 
-    imagesPerPageLoaded = 30;
+    specifiedAmountOfImagesLoaded = 30;
+    console.log(`images per page loaded`, specifiedAmountOfImagesLoaded);
   }
 }
 
@@ -93,11 +98,19 @@ function displayPhotos() {
 
 async function getPhotos() {
   try {
+    console.log(`original state`, initialLoad);
     const response = await fetch(apiURL);
     const data = await response.json();
 
-    photosArray = data.results;
+    if (initialLoad) {
+      updateURLWithnewSpecifiedAmountOfImagesLoaded(30);
+      initialLoad = false;
+    }
 
+    photosArray = data;
+    console.log(photosArray);
+
+    console.log(`images per page loaded 2nd`, specifiedAmountOfImagesLoaded);
     displayPhotos();
   } catch (error) {
     alert(`${error}`);
