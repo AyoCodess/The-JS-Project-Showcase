@@ -23,6 +23,11 @@ body {
   background: white;
 }
 
+video {
+  margin: 4.5rem auto;
+  // display: block;
+  text-align: center;
+}
 .container {
   margin-left: 5%;
   margin-right: 5%;
@@ -151,7 +156,8 @@ button {
 }
 
 #select-share-screen-button,
-#select-webcam-screen-button {
+#select-webcam-screen-button,
+#view-screen {
   box-shadow: inset 0 20px 4px -19px rgba(43, 106, 120, 0.4),
     0 12px 12px 0 rgba(54, 132, 150, 0.3);
 
@@ -166,11 +172,16 @@ button {
 }
 
 #select-share-screen-button:hover,
-#select-webcam-screen-button:hover {
+#select-webcam-screen-button:hover,
+#view-screen {
   color: #3b92a5;
 }
 #stop-capture-button:hover {
   color: #b97375;
+}
+
+#select-webcam-screen-button {
+  margin-left: 1rem;
 }
 
 button:active {
@@ -247,7 +258,8 @@ button:active {
   .button-container {
     margin-top: 5rem;
 
-    #select-share-screen-button {
+    #select-share-screen-button,
+    #view-screen {
       margin-left: 0rem;
     }
   }
@@ -277,13 +289,15 @@ button:active {
 
     font-size: 1rem;
 
-    #select-share-screen-button {
+    #select-share-screen-button,
+    #view-screen {
       margin-left: 0rem;
 
       font-size: 2rem;
     }
 
-    #select-webcam-screen-button {
+    #select-webcam-screen-button,
+    #view-screen {
       font-size: 2rem;
     }
 
