@@ -183,6 +183,8 @@ button:active {
 @media (max-width: 1164px) {
   .main {
     flex-direction: column;
+
+    margin-top: 5rem;
   }
 
   .button-container {
@@ -208,6 +210,103 @@ button:active {
   .text-container {
     max-width: 50rem;
     align-items: flex-start;
-    margin-left: 10rem;
+    margin: 5rem 0rem;
+
+    .text {
+      margin: 1rem;
+    }
+
+    .title {
+      margin: 1rem;
+    }
+  }
+}
+
+@media (max-width: 524px) {
+  .main {
+    flex-direction: column;
+
+    .header {
+      .chrome {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        margin-left: 3.8rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .author {
+        margin-top: 1rem;
+        margin-left: 7rem;
+      }
+    }
+  }
+
+  .button-container {
+    margin-top: 5rem;
+
+    #select-share-screen-button {
+      margin-left: 0rem;
+    }
+  }
+
+  .text-container {
+    max-width: 50rem;
+    align-items: flex-start;
+    margin: 5rem 0rem;
+
+    .text {
+      margin: 1rem;
+
+      font-size: 1.5rem;
+    }
+
+    .title {
+      margin: 1rem;
+
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 330px) {
+  .button-container {
+    margin-top: 5rem;
+
+    font-size: 1rem;
+
+    #select-share-screen-button {
+      margin-left: 0rem;
+
+      font-size: 2rem;
+    }
+
+    #select-webcam-screen-button {
+      font-size: 2rem;
+    }
+
+    #stop-capture-button {
+      font-size: 2rem;
+    }
+  }
+
+  .text-container {
+    max-width: 50rem;
+    align-items: flex-start;
+    margin: 5rem 0rem;
+
+    .text {
+      margin: 1rem;
+
+      font-size: 1.5rem;
+    }
+
+    .title {
+      margin: 1rem;
+
+      font-size: 2rem;
+    }
   }
 }
