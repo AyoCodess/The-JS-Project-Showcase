@@ -52,7 +52,7 @@ const constraints = {
   audio: true,
 };
 
-//? check if browser supports webcam share
+//? check if browser supports webcam share, does it have these methods.
 function hasGetUserMedia() {
   return navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
 }
