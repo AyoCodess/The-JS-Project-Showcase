@@ -13,7 +13,7 @@ async function selectMediaStream() {
       video.play();
     };
   } catch (e) {
-    alert(`We have an error:`, e);
+    // alert(`We have an error:`, e);
   }
 }
 
@@ -52,28 +52,34 @@ const constraints = {
   audio: true,
 };
 
+//? check if browser supports webcam share
+function hasGetUserMedia() {
+  return navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
+}
+
 webCamBtn.addEventListener(`click`, function () {
   hasGetUserMedia();
+
+  if (hasGetUserMedia()) {
+    webCamApiCall();
+  } else {
+    alert("getUserMedia() is not supported by your browser");
+  }
 });
 
-function hasGetUserMedia() {
-  return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
-}
-if (hasGetUserMedia()) {
-  webCamApiCall();
-} else {
-  alert("getUserMedia() is not supported by your browser");
-}
-
 async function webCamApiCall() {
-  let stream = null;
-
   try {
-    stream = await navigator.mediaDevices.getUserMedia(constraints);
-    video.srcObject = stream;
+    video.srcObject = await navigator.mediaDevices.getUserMedia(constraints);
+    video.play();
 
-    window.stream = stream;
+    video.addEventListener("loadedmetadata", async () => {
+      try {
+        await video.requestPictureInPicture();
+      } catch (error) {
+        // alert(`video load`, error);
+      }
+    });
   } catch (e) {
-    alert(`try again`, e);
+    // alert(`try again`, e);
   }
 }

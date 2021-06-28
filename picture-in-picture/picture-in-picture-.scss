@@ -241,7 +241,7 @@ button:active {
       .chrome {
         font-size: 2rem;
         margin-bottom: 1rem;
-        margin-left: 3.8rem;
+        margin-left: 2rem;
       }
 
       h1 {
@@ -250,7 +250,7 @@ button:active {
 
       .author {
         margin-top: 1rem;
-        margin-left: 7rem;
+        margin-left: 11rem;
       }
     }
   }
@@ -259,8 +259,19 @@ button:active {
     margin-top: 5rem;
 
     #select-share-screen-button,
-    #view-screen {
-      margin-left: 0rem;
+    #view-screen,
+    #select-webcam-screen-button {
+      margin: 1rem;
+      font-size: 1.5rem;
+
+      p {
+        padding: 1.5rem 1.5rem;
+      }
+    }
+
+    button {
+      margin: 0rem;
+      min-height: auto;
     }
   }
 
