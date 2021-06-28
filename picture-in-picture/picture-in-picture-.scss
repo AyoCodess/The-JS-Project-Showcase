@@ -28,6 +28,20 @@ video {
   // display: block;
   text-align: center;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: #3b92a5;
+  }
+
+  &:active {
+    color: #3b92a5;
+  }
+}
+
 .container {
   margin-left: 5%;
   margin-right: 5%;
