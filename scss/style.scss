@@ -58,12 +58,35 @@ body {
       margin-top: 1rem;
       font-size: 3rem;
       color: black;
-      border-bottom: 2px solid rgba(54, 132, 150);
-      padding-bottom: 4rem;
 
       span {
         color: rgba(54, 132, 150);
         font-weight: bold;
+      }
+    }
+
+    .link-header {
+      margin-top: 2rem;
+      border-bottom: 2px solid rgba(54, 132, 150);
+      padding-bottom: 4rem;
+
+      font-size: 2rem;
+      font-style: italic;
+      color: black;
+
+      a {
+        text-decoration: none;
+        &:active {
+          color: black;
+        }
+
+        &:visited {
+          color: black;
+        }
+
+        &:hover {
+          color: rgba(54, 132, 150);
+        }
       }
     }
   }
