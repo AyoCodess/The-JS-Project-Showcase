@@ -88,11 +88,16 @@ body {
     &:hover {
       color: black;
       background: #456147;
-      transform: scale(1.3);
     }
 
     &:active {
       color: white;
+      transform: scale(0.95); //does not work with animation
+    }
+
+    &:disabled {
+      background-color: darken(#456147, 50%);
+      cursor: default;
     }
   }
 }
