@@ -131,18 +131,29 @@ function test() {
 
 //? Get jokes from joke api
 
-async function getJoke() {
+let joke = "";
+
+async function getJokes() {
   try {
-    const response = await fetch(
-      `https://v2.jokeapi.dev/joke/Dark,Spooky?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single`
-    );
+    const apiURL = `https://v2.jokeapi.dev/joke/Dark,Spooky?blacklistFlags=nsfw,religious,political,racist,sexist,explicit`;
+
+    const response = await fetch(apiURL);
 
     const data = await response.json();
 
-    console.log(data);
+    if (data.setup) {
+      joke = `${data.setup} ... ${data.delivery}`;
+    }
+
+    if (data.joke) {
+      joke = `${data.joke}`;
+    }
+
+    console.log(joke);
+    return joke;
   } catch (error) {
     console.error(error);
   }
 }
 
-button.addEventListener(`click`, getJoke);
+button.addEventListener(`click`, getJokes);
