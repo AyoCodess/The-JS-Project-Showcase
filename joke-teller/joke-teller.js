@@ -2,9 +2,14 @@
 
 const button = document.getElementById(`button`);
 const audioElement = document.getElementById(`audio`);
-// alert(
-//   `We are still working on getting an actual Joker text-to-speech API to read the jokes aloud. For the meantime, enjoy the current voice.`
-// );
+
+//? on load alert
+
+alert(
+  `We are still working on getting an actual Joker text-to-speech API to read the jokes aloud. For the meantime, enjoy the current voice.`
+);
+
+//? text-speech-SDK
 
 const VoiceRSS = {
   speech: function (e) {
@@ -113,11 +118,21 @@ const VoiceRSS = {
   },
 };
 
-//? calling the SDK
-function test() {
+//? Disable/Enable button
+
+function toggleButton() {
+  button.disabled = !button.disabled;
+}
+
+function resetButtonText() {
+  button.textContent = `Joker, tell me a joke.`;
+}
+
+//? calling text-to-speech api with joke
+function tellMe(joke) {
   VoiceRSS.speech({
     key: "970fa90033b04604871b3dcf69072515",
-    src: "Hello, world! My name is Ayo Adesanya",
+    src: joke,
     hl: "en-gb",
     v: "Linda",
     r: 0,
@@ -126,8 +141,6 @@ function test() {
     ssml: false,
   });
 }
-
-// test();
 
 //? Get jokes from joke api
 
@@ -149,11 +162,18 @@ async function getJokes() {
       joke = `${data.joke}`;
     }
 
-    console.log(joke);
-    return joke;
+    tellMe(joke);
+
+    //? disable button while joke is playing
+
+    button.textContent = `I'm telling you a joke...`;
+    toggleButton();
   } catch (error) {
     console.error(error);
   }
 }
 
+//? event listens
 button.addEventListener(`click`, getJokes);
+audioElement.addEventListener(`ended`, toggleButton);
+audioElement.addEventListener(`ended`, resetButtonText);
