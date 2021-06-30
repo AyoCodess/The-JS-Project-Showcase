@@ -141,6 +141,10 @@ body {
     color: #456147;
     transform: scale(1.2);
   }
+
+  &:active {
+    transform: scale(1);
+  }
 }
 
 //? MEDIA QUERIES
