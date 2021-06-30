@@ -72,7 +72,7 @@ body {
 
       font-size: 2rem;
       font-style: italic;
-      color: black;
+      color: rgba(54, 132, 150);
 
       a {
         text-decoration: none;
@@ -81,7 +81,7 @@ body {
         }
 
         &:visited {
-          color: black;
+          color: rgba(54, 132, 150);
         }
 
         &:hover {
