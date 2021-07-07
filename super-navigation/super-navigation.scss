@@ -214,11 +214,15 @@ nav {
 }
 
 /* --- Sections ------------------------------------ */
-
+.site-wrapper {
+  overflow-x: hidden;
+}
 .main {
   a {
     text-decoration: none;
     color: #000;
+
+    font-size: 2rem;
 
     &:hover {
       color: white;
@@ -229,6 +233,12 @@ nav {
     display: block;
     margin-top: 0.5rem;
     text-align: right;
+
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    font-size: 5rem;
   }
 }
 section {
@@ -287,5 +297,33 @@ section#contact {
   .menu-bars {
     top: 0.5rem;
     right: 1rem;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    a {
+      font-size: 1.5rem;
+      color: white;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      color: black;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  section#home {
+    background-size: cover;
+    background-position: left center;
   }
 }
