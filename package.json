@@ -4,7 +4,7 @@
   "description": "New Project",
   "main": "script.js",
   "scripts": {
-    "sass": "sass --watch scss:dist/css quote-generator:dist/css infinite-scroll-gallery:dist/css picture-in-picture:dist/css joke-teller:dist/css super-navigation:dist/css  --style=compressed",
+    "sass": "sass --watch scss:dist/css quote-generator:dist/css infinite-scroll-gallery:dist/css picture-in-picture:dist/css joke-teller:dist/css super-navigation:dist/css dbz-music-player:dist/css  --style=compressed",
     "build": "parcel build index.html"
   },
   "repository": {
