@@ -21,7 +21,7 @@ button {
   --navColor2: #530ea2;
   --navColor3: #ffda5f;
   --navColor4: #2119a7;
-  --navColor5: #efde02;
+  --navColor5: red;
 }
 
 html {
@@ -325,5 +325,9 @@ section#contact {
   section#home {
     background-size: cover;
     background-position: left center;
+  }
+
+  nav ul li a {
+    font-size: 3rem;
   }
 }
