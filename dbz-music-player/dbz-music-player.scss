@@ -39,6 +39,8 @@ body {
 
   height: 100vh;
   width: 100vw;
+
+  overflow: hidden;
 }
 
 .overlay {
@@ -47,7 +49,7 @@ body {
   background: white;
   opacity: 0.95;
 
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
 }
 
@@ -155,6 +157,12 @@ h3 {
   font-size: 30px;
   color: rgb(129, 129, 129);
   margin-right: 30px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    filter: brightness(80%);
+  }
 }
 
 .main-button {
