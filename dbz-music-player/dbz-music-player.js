@@ -97,7 +97,25 @@ function nextSong() {
   }
 }
 
-function prevSong() {}
+function prevSong() {
+  if (songIndex === 0) {
+    songIndex = songs.length;
+    loadSong(songs[songIndex - 1]);
+    playSong();
+    songIndex--;
+  }
+
+  songIndex--;
+  if (songIndex >= songs.length) {
+    loadSong(songs[0]);
+    playSong();
+    songIndex = 0;
+  } else {
+    loadSong(songs[songIndex]);
+    playSong();
+  }
+}
+
 //? on load - select first song
 
 loadSong(songs[songIndex]);
