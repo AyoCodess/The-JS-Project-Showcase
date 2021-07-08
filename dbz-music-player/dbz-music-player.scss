@@ -30,7 +30,7 @@ body {
 }
 
 .site-wrapper {
-  position: relative;
+  position: fixed;
   overflow-x: hidden;
   background-image: url(/dbz-music-player/img/bg.jpeg);
   background-repeat: no-repeat;
@@ -39,8 +39,6 @@ body {
 
   height: 100vh;
   width: 100vw;
-
-  overflow: hidden;
 }
 
 .overlay {
