@@ -36,6 +36,24 @@ body {
 
 .site-wrapper {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ayo {
+  z-index: 100;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: 0.5s color ease;
+
+  &:hover {
+    color: rgb(48, 141, 179);
+  }
 }
 
 /* Video Background */
