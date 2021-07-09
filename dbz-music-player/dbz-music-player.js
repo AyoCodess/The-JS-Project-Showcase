@@ -57,7 +57,7 @@ const songs = [
   },
   {
     name: `SSJ3-Powerup`,
-    displayName: `SSJ Powerup`,
+    displayName: `SSJ 3 Powerup`,
     artist: `Bruce Faulconer`,
   },
 ];
