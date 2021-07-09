@@ -39,7 +39,7 @@
       <!-- ? container -->
       <div class="container">
       <!-- ? form -->
-      <div class="input-container" id="input-container">
+      <div class="input-container" id="input-container" hidden>
         <h1>Create a custom Countdown!</h1>
         <form  class="form" id="countdownForm">
           <label for="title">Title</label>
@@ -48,6 +48,18 @@
           <input type="date" id="date-picker">
           <button type="submit">submit</button>
         </form>
+      </div>
+      <!-- ? countdown -->
+      <div class="countdown" id="countdown">
+        <h1 id="countdown-title">countdown title here</h1>
+        <ul>
+          <li><span>3</span>Days</li>
+          <li><span>6</span>Hours</li>
+          <li><span>45</span>Minutes</li>
+          <li><span>42</span>Seconds</li>
+        </ul>
+        
+        <button id="coutdown-buttton">Reset</button>
       </div>
  
 
