@@ -4,8 +4,13 @@ const inputContainer = document.getElementById(`input=container`);
 const countdownForm = document.getElementById(`countdownForm`);
 const dateEL = document.getElementById(`date-picker`);
 
+const countdownEl = document.getElementById(`countdown`);
+const countdownElTitle = document.getElementById(`countdown-title`);
+const countdownBtn = document.getElementById(`countdown-button`);
+
 let countdownTitle = ``;
 let countdownDate = ``;
+let countdownValue = Date;
 
 //? set dat input minimum with todays date
 
@@ -20,7 +25,11 @@ function updateCountdown(e) {
   countdownTitle = e.srcElement[0].value;
   countdownDate = e.srcElement[1].value;
 
-  console.log(countdownDate, countdownTitle);
+  //? get number version of current date
+
+  countdownValue = new Date(countdownDate).getTime();
+
+  console.log(countdownValue);
 }
 
 countdownForm.addEventListener(`submit`, updateCountdown);

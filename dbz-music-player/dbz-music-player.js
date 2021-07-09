@@ -42,12 +42,22 @@ const songs = [
   },
   {
     name: `BruceFaulconer-Trunks-Compendium-Prelude-to-Conflict`,
-    displayName: `Dragonball Z - Intro 2 (Prelude To Conflict)`,
+    displayName: `Dragonball Z - Intro 2`,
     artist: `Bruce Faulconer`,
   },
   {
     name: `BruceFaulconer-20-Vegeta-Super-Saiyan`,
     displayName: `Vegeta Super Saiyan`,
+    artist: `Bruce Faulconer`,
+  },
+  {
+    name: `Trunks-Cell`,
+    displayName: `Trunks Vs Cell`,
+    artist: `Bruce Faulconer`,
+  },
+  {
+    name: `SSJ3-Powerup`,
+    displayName: `SSJ Powerup`,
     artist: `Bruce Faulconer`,
   },
 ];
