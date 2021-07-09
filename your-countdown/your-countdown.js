@@ -9,6 +9,10 @@ const countdownElTitle = document.getElementById(`countdown-title`);
 const countdownBtn = document.getElementById(`countdown-button`);
 const timeElements = document.querySelectorAll(`span`);
 
+const completeEl = document.getElementById(`complete`);
+const completeElinfo = document.getElementById(`complete-info`);
+const completeBtn = document.getElementById(`complete-button`);
+
 let countdownTitle = ``;
 let countdownDate = ``;
 let countdownValue = Date;
@@ -36,22 +40,29 @@ function updateDOM() {
     const minutes = Math.floor((distance % hour) / minute);
     const seconds = Math.floor((distance % minute) / second);
 
-    //* populate countdown
-
-    countdownElTitle.textContent = `${countdownTitle}`;
-
-    timeElements[0].textContent = `${days}`;
-    timeElements[1].textContent = `${hours}`;
-    timeElements[2].textContent = `${minutes}`;
-    timeElements[3].textContent = `${seconds}`;
-
-    //? hide form
+    //? hide input
 
     inputContainer.hidden = true;
 
-    //? show counrdonw
+    //? if countdown has ended show compelete
 
-    countdownEl.hidden = false;
+    if (distance < 0) {
+      countdownEl.hidden = true;
+      clearInterval(countdownActive);
+      completeElinfo.textContent = `${countdownTitle} finished on ${countdownDate}`;
+      completeEl.hidden = false;
+    } else {
+      //? show countdown in progress
+      countdownElTitle.textContent = `${countdownTitle}`;
+
+      timeElements[0].textContent = `${days}`;
+      timeElements[1].textContent = `${hours}`;
+      timeElements[2].textContent = `${minutes}`;
+      timeElements[3].textContent = `${seconds}`;
+
+      completeEl.hidden = true;
+      countdownEl.hidden = false;
+    }
   }, 1000);
 }
 
@@ -64,11 +75,17 @@ function updateCountdown(e) {
   countdownTitle = e.srcElement[0].value;
   countdownDate = e.srcElement[1].value;
 
-  //? get number version of current date
+  //?  check for valid date
 
-  countdownValue = new Date(countdownDate).getTime();
+  if (countdownDate === ``) {
+    alert(`Please select the date for the countdown.`);
+  } else {
+    //? get number version of current date
 
-  updateDOM();
+    countdownValue = new Date(countdownDate).getTime();
+
+    updateDOM();
+  }
 }
 
 //? rest all values
@@ -77,6 +94,7 @@ function reset() {
   //? hide coutdown, show form
   countdownEl.hidden = true;
   inputContainer.hidden = false;
+  completeEl.hidden = true;
 
   //? stop the coutdowm
 
@@ -89,3 +107,5 @@ function reset() {
 }
 countdownForm.addEventListener(`submit`, updateCountdown);
 countdownBtn.addEventListener(`click`, reset);
+
+completeBtn.addEventListener(`click`, reset);
