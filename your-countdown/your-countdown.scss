@@ -97,6 +97,7 @@ h1 {
   text-align: center;
   margin-top: 0;
   margin-bottom: 2rem;
+  text-transform: capitalize;
 }
 
 /* Form */
@@ -143,6 +144,8 @@ button {
 /* Countdown */
 
 .countdown {
+}
+.cd-con {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -155,7 +158,6 @@ ul {
 }
 
 li {
-  display: inline-block;
   font-size: 30px;
   list-style-type: none;
   padding: 10px;
@@ -171,8 +173,36 @@ li span {
 
 /* Complete */
 .complete {
-  position: relative;
-  top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.complete-title {
+  animation: complete 4s infinite;
+}
+
+@keyframes complete {
+  0% {
+    color: rgb(202, 18, 18);
+  }
+
+  25% {
+    color: rgb(235, 243, 11);
+  }
+
+  50% {
+    color: rgb(17, 231, 53);
+    transform: scale(1.5);
+  }
+
+  75% {
+    color: rgb(18, 196, 202);
+  }
+
+  100% {
+    color: rgb(202, 18, 162);
+  }
 }
 
 @media (max-width: 1012px) {
